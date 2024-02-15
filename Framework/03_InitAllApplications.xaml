@@ -7,11 +7,12 @@
     <x:Property Name="out_DT_MasterEmail" Type="OutArgument(sd:DataTable)" />
     <x:Property Name="io_DisplayMessage" Type="InOutArgument(x:Int32)" />
     <x:Property Name="out_strPasswordFlow" Type="OutArgument(x:String)" />
+    <x:Property Name="out_DT_PasswordFile" Type="OutArgument(sd:DataTable)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1201,4526</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1182,4026</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>InitAllApplications_2_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="43">
@@ -98,7 +99,7 @@
       <AssemblyReference>UiPathTeam.Interactive.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="InitAllApplications_2" sap:VirtualizedContainerService.HintSize="1068,4421" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="InitAllApplications_2" sap:VirtualizedContainerService.HintSize="605,3921" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -106,10 +107,10 @@
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1026,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Start initializing application&quot;]" />
-    <uia:UpdateMessage BackColor="Yellow" DisplayName="Update Message" ForeColor="Black" Handle="[io_DisplayMessage]" sap:VirtualizedContainerService.HintSize="1026,22" sap2010:WorkflowViewState.IdRef="UpdateMessage_1" Message="Cek kelengkapan Master Data 10%" />
-    <xl:Write_Log DisplayName="Write Log" sap:VirtualizedContainerService.HintSize="1026,22" sap2010:WorkflowViewState.IdRef="Write_Log_1" LogType="Info" Message="Start initializing application" ProjectName="[in_ProjectName]" />
-    <Sequence DisplayName="Cek kelengkapan Master Data" sap:VirtualizedContainerService.HintSize="1026,3788" sap2010:WorkflowViewState.IdRef="Sequence_15">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="563,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Start initializing application&quot;]" />
+    <uia:UpdateMessage BackColor="Yellow" DisplayName="Update Message" ForeColor="Black" Handle="[io_DisplayMessage]" sap:VirtualizedContainerService.HintSize="563,22" sap2010:WorkflowViewState.IdRef="UpdateMessage_1" Message="Cek kelengkapan Master Data 10%" />
+    <xl:Write_Log DisplayName="Write Log" sap:VirtualizedContainerService.HintSize="563,22" sap2010:WorkflowViewState.IdRef="Write_Log_1" LogType="Info" Message="Start initializing application" ProjectName="[in_ProjectName]" />
+    <Sequence DisplayName="Cek kelengkapan Master Data" sap:VirtualizedContainerService.HintSize="563,3288" sap2010:WorkflowViewState.IdRef="Sequence_15">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="strFolderMaster" />
         <Variable x:TypeArguments="x:String" Name="strNamaFileConfigHCM" />
@@ -122,15 +123,14 @@
         <Variable x:TypeArguments="scg:List(x:String)" Name="listFileMasterNotFound" />
         <Variable x:TypeArguments="x:Boolean" Name="boolFileMasterEmail" />
         <Variable x:TypeArguments="x:String" Name="strSheetPassword" />
-        <Variable x:TypeArguments="sd:DataTable" Name="DT_PasswordFile" />
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <xl:Write_Log DisplayName="Write Log" sap:VirtualizedContainerService.HintSize="984,22" sap2010:WorkflowViewState.IdRef="Write_Log_4" LogType="Info" Message="Cek Kelengkapan Master Data" ProjectName="[in_ProjectName]" />
-      <ui:MultipleAssign DisplayName="Multiple Assign Kelengkapan Master Data" sap:VirtualizedContainerService.HintSize="984,346" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+      <xl:Write_Log DisplayName="Write Log" sap:VirtualizedContainerService.HintSize="521,22" sap2010:WorkflowViewState.IdRef="Write_Log_4" LogType="Info" Message="Cek Kelengkapan Master Data" ProjectName="[in_ProjectName]" />
+      <ui:MultipleAssign DisplayName="Multiple Assign Kelengkapan Master Data" sap:VirtualizedContainerService.HintSize="521,346" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
         <ui:MultipleAssign.AssignOperations>
           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
@@ -208,8 +208,8 @@
           </scg:List>
         </ui:MultipleAssign.AssignOperations>
       </ui:MultipleAssign>
-      <ui:PathExists DisplayName="Path Exists Path File Config HCM" Exists="[boolFileConfigHCM]" sap:VirtualizedContainerService.HintSize="984,89" sap2010:WorkflowViewState.IdRef="PathExists_2" Path="[strPathFileConfigHCM]" PathType="File" />
-      <If Condition="[not boolFileConfigHCM]" DisplayName="If File Config HCM tidak ada" sap:VirtualizedContainerService.HintSize="984,227" sap2010:WorkflowViewState.IdRef="If_3">
+      <ui:PathExists DisplayName="Path Exists Path File Config HCM" Exists="[boolFileConfigHCM]" sap:VirtualizedContainerService.HintSize="521,89" sap2010:WorkflowViewState.IdRef="PathExists_2" Path="[strPathFileConfigHCM]" PathType="File" />
+      <If Condition="[not boolFileConfigHCM]" DisplayName="If File Config HCM tidak ada" sap:VirtualizedContainerService.HintSize="521,227" sap2010:WorkflowViewState.IdRef="If_3">
         <If.Then>
           <AddToCollection x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="masukin file yg tidak ada ke dalam list untuk show di pop up" Collection="[listFileMasterNotFound]" DisplayName="Add To Collection list" sap:VirtualizedContainerService.HintSize="200,79" sap2010:WorkflowViewState.IdRef="AddToCollection`1_1" Item="[strNamaFileConfigHCM]">
             <sap:WorkflowViewStateService.ViewState>
@@ -220,8 +220,8 @@
           </AddToCollection>
         </If.Then>
       </If>
-      <ui:PathExists DisplayName="Path Exists Path Master Email" Exists="[boolFileMasterEmail]" sap:VirtualizedContainerService.HintSize="984,89" sap2010:WorkflowViewState.IdRef="PathExists_3" Path="[strPathFileMasterEmail]" PathType="File" />
-      <If Condition="[not boolFileMasterEmail]" DisplayName="If File Master Email tidak ada" sap:VirtualizedContainerService.HintSize="984,227" sap2010:WorkflowViewState.IdRef="If_4">
+      <ui:PathExists DisplayName="Path Exists Path Master Email" Exists="[boolFileMasterEmail]" sap:VirtualizedContainerService.HintSize="521,89" sap2010:WorkflowViewState.IdRef="PathExists_3" Path="[strPathFileMasterEmail]" PathType="File" />
+      <If Condition="[not boolFileMasterEmail]" DisplayName="If File Master Email tidak ada" sap:VirtualizedContainerService.HintSize="521,227" sap2010:WorkflowViewState.IdRef="If_4">
         <If.Then>
           <AddToCollection x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="masukin file yg tidak ada ke dalam list untuk show di pop up" Collection="[listFileMasterNotFound]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="200,79" sap2010:WorkflowViewState.IdRef="AddToCollection`1_2" Item="[strNamaFileMasterEmail]">
             <sap:WorkflowViewStateService.ViewState>
@@ -232,7 +232,7 @@
           </AddToCollection>
         </If.Then>
       </If>
-      <If Condition="[listFileMasterNotFound.Count&gt;0]" DisplayName="If list Master Not Found" sap:VirtualizedContainerService.HintSize="984,576" sap2010:WorkflowViewState.IdRef="If_5">
+      <If Condition="[listFileMasterNotFound.Count&gt;0]" DisplayName="If list Master Not Found" sap:VirtualizedContainerService.HintSize="521,576" sap2010:WorkflowViewState.IdRef="If_5">
         <If.Then>
           <Sequence DisplayName="Proses notepad" sap:VirtualizedContainerService.HintSize="376,428" sap2010:WorkflowViewState.IdRef="Sequence_16">
             <Sequence.Variables>
@@ -262,7 +262,7 @@
           </Sequence>
         </If.Then>
       </If>
-      <TryCatch DisplayName="Try Catch Read Range Config HCM" sap:VirtualizedContainerService.HintSize="984,314" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+      <TryCatch DisplayName="Try Catch Read Range Config HCM" sap:VirtualizedContainerService.HintSize="521,314" sap2010:WorkflowViewState.IdRef="TryCatch_2">
         <TryCatch.Try>
           <ui:ReadRange AddHeaders="True" DataTable="[out_DT_ConfigHCM]" DisplayName="Read Range Config HCM wb" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="[strSheetConfigHCM]" WorkbookPath="[strPathFileConfigHCM]">
             <ui:ReadRange.Range>
@@ -284,7 +284,7 @@
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
               </ActivityAction.Argument>
-              <Sequence sap:VirtualizedContainerService.HintSize="476,451" sap2010:WorkflowViewState.IdRef="Sequence_20">
+              <Sequence sap:VirtualizedContainerService.HintSize="476,411" sap2010:WorkflowViewState.IdRef="Sequence_20">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="ui:WorkbookApplication" Name="workbook" />
                 </Sequence.Variables>
@@ -322,9 +322,9 @@
           </Catch>
         </TryCatch.Catches>
       </TryCatch>
-      <TryCatch DisplayName="Try Catch Read Range Password" sap:VirtualizedContainerService.HintSize="984,314" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+      <TryCatch DisplayName="Try Catch Read Range Password" sap:VirtualizedContainerService.HintSize="521,314" sap2010:WorkflowViewState.IdRef="TryCatch_3">
         <TryCatch.Try>
-          <ui:ReadRange AddHeaders="True" DataTable="[DT_PasswordFile]" DisplayName="Read Range Config HCM wb" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ReadRange_4" SheetName="[strSheetPassword]" WorkbookPath="[strPathFileConfigHCM]">
+          <ui:ReadRange AddHeaders="True" DataTable="[out_DT_PasswordFile]" DisplayName="Read Range Config HCM wb" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ReadRange_4" SheetName="[strSheetPassword]" WorkbookPath="[strPathFileConfigHCM]">
             <ui:ReadRange.Range>
               <InArgument x:TypeArguments="x:String">
                 <Literal x:TypeArguments="x:String" Value="" />
@@ -344,7 +344,7 @@
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
               </ActivityAction.Argument>
-              <Sequence sap:VirtualizedContainerService.HintSize="476,451" sap2010:WorkflowViewState.IdRef="Sequence_22">
+              <Sequence sap:VirtualizedContainerService.HintSize="476,411" sap2010:WorkflowViewState.IdRef="Sequence_22">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="ui:WorkbookApplication" Name="workbook" />
                 </Sequence.Variables>
@@ -365,7 +365,7 @@
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:ExcelReadRange AddHeaders="True" DataTable="[DT_PasswordFile]" DisplayName="Read Range Config HCM Apps" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_3" SheetName="[strSheetPassword]">
+                        <ui:ExcelReadRange AddHeaders="True" DataTable="[out_DT_PasswordFile]" DisplayName="Read Range Config HCM Apps" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_3" SheetName="[strSheetPassword]">
                           <ui:ExcelReadRange.Range>
                             <InArgument x:TypeArguments="x:String">
                               <Literal x:TypeArguments="x:String" Value="" />
@@ -382,16 +382,17 @@
           </Catch>
         </TryCatch.Catches>
       </TryCatch>
-      <Sequence DisplayName="Handling Password" sap:VirtualizedContainerService.HintSize="984,778" sap2010:WorkflowViewState.IdRef="Sequence_25">
+      <Sequence DisplayName="Handling Password" sap:VirtualizedContainerService.HintSize="521,66" sap2010:WorkflowViewState.IdRef="Sequence_25">
         <Sequence.Variables>
           <Variable x:TypeArguments="x:Int32" Name="intIdx" />
         </Sequence.Variables>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:LookupDataTable LookupColumnName="{x:Null}" LookupDataColumn="{x:Null}" TargetColumnName="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[DT_PasswordFile]" DisplayName="Lookup Data Table" sap:VirtualizedContainerService.HintSize="942,22" sap2010:WorkflowViewState.IdRef="LookupDataTable_1" LookupColumnIndex="[0]" LookupValue="[strSheetConfigHCM]" RowIndex="[intIdx]" TargetColumnIndex="[1]">
+        <ui:LookupDataTable LookupColumnName="{x:Null}" LookupDataColumn="{x:Null}" TargetColumnName="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[out_DT_PasswordFile]" DisplayName="Lookup Data Table" sap:VirtualizedContainerService.HintSize="942,22" sap2010:WorkflowViewState.IdRef="LookupDataTable_1" LookupColumnIndex="[0]" LookupValue="[strSheetConfigHCM]" RowIndex="[intIdx]" TargetColumnIndex="[1]">
           <ui:LookupDataTable.CellValue>
             <OutArgument x:TypeArguments="x:String">[out_strPasswordFlow]</OutArgument>
           </ui:LookupDataTable.CellValue>
@@ -434,9 +435,7 @@
               </sap:WorkflowViewStateService.ViewState>
               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke NotifNotepad workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\NotifNotepad.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="x:String" x:Key="notifMessage">
-                    <Literal x:TypeArguments="x:String">Tidak ditemukan password pada flow name Penggabungan File JIRA di excel Config_HCM sheet Password File</Literal>
-                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="notifMessage">Tidak ditemukan password pada flow name Penggabungan File JIRA di excel Config_HCM sheet Password File</InArgument>
                 </ui:InvokeWorkflowFile.Arguments>
               </ui:InvokeWorkflowFile>
               <xl:Write_Log DisplayName="Write Log" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Write_Log_7" LogType="Info" Message="Tidak ditemukan password pada flow name Penggabungan File JIRA di excel Config_HCM sheet Password File" ProjectName="[in_ProjectName]" />
@@ -445,7 +444,264 @@
           </If.Else>
         </If>
       </Sequence>
-      <TryCatch DisplayName="Try Catch Master Email" sap:VirtualizedContainerService.HintSize="984,314" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <Sequence DisplayName="Handling File with Location" sap:VirtualizedContainerService.HintSize="521,66" sap2010:WorkflowViewState.IdRef="Sequence_28">
+        <Sequence.Variables>
+          <Variable x:TypeArguments="scg:List(x:String)" Name="ListFileLocationError" />
+        </Sequence.Variables>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Assign sap:VirtualizedContainerService.HintSize="655,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+          <Assign.To>
+            <OutArgument x:TypeArguments="scg:List(x:String)">[ListFileLocationError]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="scg:List(x:String)">[new List(of String)]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[out_DT_PasswordFile]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="655,843" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+          <ui:ForEachRow.Body>
+            <ActivityAction x:TypeArguments="sd:DataRow">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="621,723" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If Condition="[Not CurrentRow(&quot;Location&quot;).ToString.Trim.Equals(&quot;&quot;)]" sap:VirtualizedContainerService.HintSize="579,631" sap2010:WorkflowViewState.IdRef="If_8">
+                  <If.Then>
+                    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="434,483" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+                      <TryCatch.Variables>
+                        <Variable x:TypeArguments="ui:WorkbookApplication" Name="wb" />
+                      </TryCatch.Variables>
+                      <TryCatch.Try>
+                        <ui:ExcelApplicationScope AutoSave="False" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="434,421" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_4" InstanceCachePeriod="3000" Password="[CurrentRow(&quot;Unlock Password File Location&quot;).ToString]" Visible="False" Workbook="[wb]" WorkbookPath="[CurrentRow(&quot;Location&quot;).ToString]">
+                          <ui:ExcelApplicationScope.Body>
+                            <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                              <ActivityAction.Argument>
+                                <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                              </ActivityAction.Argument>
+                              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,312" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                                <Sequence.Variables>
+                                  <Variable x:TypeArguments="scg:List(x:String)" Name="ListSheet" />
+                                </Sequence.Variables>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:ExcelGetWorkbookSheets DisplayName="Get Workbook Sheets" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="ExcelGetWorkbookSheets_1" Sheets="[ListSheet]" />
+                                <ui:ExcelReadRange DataTable="{x:Null}" AddHeaders="True" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_4" SheetName="[ListSheet(0)]">
+                                  <ui:ExcelReadRange.Range>
+                                    <InArgument x:TypeArguments="x:String">
+                                      <Literal x:TypeArguments="x:String" Value="" />
+                                    </InArgument>
+                                  </ui:ExcelReadRange.Range>
+                                </ui:ExcelReadRange>
+                                <ui:ExcelCloseWorkbook DisplayName="Close Workbook" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelCloseWorkbook_4" Workbook="[wb]" />
+                              </Sequence>
+                            </ActivityAction>
+                          </ui:ExcelApplicationScope.Body>
+                        </ui:ExcelApplicationScope>
+                      </TryCatch.Try>
+                      <TryCatch.Catches>
+                        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,321" sap2010:WorkflowViewState.IdRef="Catch`1_4">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ActivityAction x:TypeArguments="s:Exception">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                            </ActivityAction.Argument>
+                            <Sequence sap:VirtualizedContainerService.HintSize="376,252" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                              <Sequence.Variables>
+                                <Variable x:TypeArguments="x:String" Name="strTes" />
+                              </Sequence.Variables>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="334,98" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
+                                <ui:MultipleAssign.AssignOperations>
+                                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_18">
+                                      <ui:AssignOperation.To>
+                                        <OutArgument x:TypeArguments="x:String">[strTes]</OutArgument>
+                                      </ui:AssignOperation.To>
+                                      <ui:AssignOperation.Value>
+                                        <InArgument x:TypeArguments="x:String">[exception.Message]</InArgument>
+                                      </ui:AssignOperation.Value>
+                                    </ui:AssignOperation>
+                                  </scg:List>
+                                </ui:MultipleAssign.AssignOperations>
+                              </ui:MultipleAssign>
+                              <AddToCollection x:TypeArguments="x:String" Collection="[ListFileLocationError]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddToCollection`1_3" Item="[CurrentRow(&quot;Location&quot;).ToString]" />
+                            </Sequence>
+                          </ActivityAction>
+                        </Catch>
+                      </TryCatch.Catches>
+                    </TryCatch>
+                  </If.Then>
+                </If>
+              </Sequence>
+            </ActivityAction>
+          </ui:ForEachRow.Body>
+        </ui:ForEachRow>
+        <If Condition="[ListFileLocationError.Count&gt;0]" sap:VirtualizedContainerService.HintSize="655,580" sap2010:WorkflowViewState.IdRef="If_9">
+          <If.Then>
+            <Sequence DisplayName="Terdapat File Location Error" sap:VirtualizedContainerService.HintSize="376,432" sap2010:WorkflowViewState.IdRef="Sequence_29">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:String" Name="strNotepadFileLoc" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Assign sap:VirtualizedContainerService.HintSize="334,64" sap2010:WorkflowViewState.IdRef="Assign_9">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[strNotepadFileLoc]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String" xml:space="preserve">["Berikut list link file yang tidak dapat dibuka atau password file salah sehingga tidak bisa dibuka oleh RPA di excel Config_HCM sheet Password File : "+Environment.NewLine+
+String.Join(Environment.NewLine, ListFileLocationError)]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke NotifNotepad workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\NotifNotepad.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <InArgument x:TypeArguments="x:String" x:Key="notifMessage">[strNotepadFileLoc]</InArgument>
+                </ui:InvokeWorkflowFile.Arguments>
+              </ui:InvokeWorkflowFile>
+              <xl:Write_Log DisplayName="Write Log" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Write_Log_8" LogType="Info" Message="[&quot;File &quot;+String.Join(&quot;, &quot;,ListFileLocationError)+&quot; tidak ditemukan di folder Data HCM.&quot;]" ProjectName="[in_ProjectName]" />
+              <Throw DisplayName="Throw File Location Error" Exception="[New BusinessRuleException(&quot;Terdapat file di kolom Location yang tidak dapat dibuka atau passwordnya tidak sesuai sehingga tidak bisa dibuka&quot;)]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Throw_5" />
+            </Sequence>
+          </If.Then>
+        </If>
+      </Sequence>
+      <Sequence DisplayName="Handling File Column" sap:VirtualizedContainerService.HintSize="823,2087" sap2010:WorkflowViewState.IdRef="Sequence_33">
+        <Sequence.Variables>
+          <Variable x:TypeArguments="scg:List(x:String)" Name="ListFileColumnError" />
+        </Sequence.Variables>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Assign sap:VirtualizedContainerService.HintSize="781,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+          <Assign.To>
+            <OutArgument x:TypeArguments="scg:List(x:String)">[ListFileColumnError]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="scg:List(x:String)">[new List(of String)]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[out_DT_PasswordFile]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="781,1275" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+          <ui:ForEachRow.Body>
+            <ActivityAction x:TypeArguments="sd:DataRow">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="747,1155" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="ui:WorkbookApplication" Name="wb" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If Condition="[Not CurrentRow(&quot;Location&quot;).ToString.Trim.Equals(&quot;&quot;)]" sap:VirtualizedContainerService.HintSize="705,1063" sap2010:WorkflowViewState.IdRef="If_12">
+                  <If.Then>
+                    <ui:ExcelApplicationScope AutoSave="False" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="560,915" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_5" InstanceCachePeriod="3000" Password="[CurrentRow(&quot;Unlock Password File Location&quot;).ToString]" Visible="False" Workbook="[wb]" WorkbookPath="[CurrentRow(&quot;Location&quot;).ToString]">
+                      <ui:ExcelApplicationScope.Body>
+                        <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="526,806" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                            <Sequence.Variables>
+                              <Variable x:TypeArguments="scg:List(x:String)" Name="ListSheet" />
+                              <Variable x:TypeArguments="sd:DataTable" Name="dtFileLoc" />
+                            </Sequence.Variables>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:ExcelGetWorkbookSheets DisplayName="Get Workbook Sheets" sap:VirtualizedContainerService.HintSize="484,22" sap2010:WorkflowViewState.IdRef="ExcelGetWorkbookSheets_2" Sheets="[ListSheet]" />
+                            <ui:ExcelReadRange AddHeaders="True" DataTable="[dtFileLoc]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="484,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_5" SheetName="[ListSheet(0)]">
+                              <ui:ExcelReadRange.Range>
+                                <InArgument x:TypeArguments="x:String">
+                                  <Literal x:TypeArguments="x:String" Value="" />
+                                </InArgument>
+                              </ui:ExcelReadRange.Range>
+                            </ui:ExcelReadRange>
+                            <If Condition="[dtFileLoc.Columns.Contains(&quot;NAMA&quot;)]" sap:VirtualizedContainerService.HintSize="484,207" sap2010:WorkflowViewState.IdRef="If_10">
+                              <If.Else>
+                                <AddToCollection x:TypeArguments="x:String" Collection="[ListFileColumnError]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddToCollection`1_4" Item="[CurrentRow(&quot;Location&quot;).ToString+&quot; tidak ditemukan judul kolom NAMA&quot;]" />
+                              </If.Else>
+                            </If>
+                            <If Condition="[dtFileLoc.Columns.Contains(CurrentRow(&quot;Nama Kolom&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="484,207" sap2010:WorkflowViewState.IdRef="If_11">
+                              <If.Else>
+                                <AddToCollection x:TypeArguments="x:String" Collection="[ListFileColumnError]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddToCollection`1_5" Item="[CurrentRow(&quot;Location&quot;).ToString+&quot; tidak ditemukan judul kolom &quot;+CurrentRow(&quot;Nama Kolom&quot;).ToString]" />
+                              </If.Else>
+                            </If>
+                            <ui:ExcelCloseWorkbook DisplayName="Close Workbook" sap:VirtualizedContainerService.HintSize="484,59" sap2010:WorkflowViewState.IdRef="ExcelCloseWorkbook_5" Workbook="[wb]" />
+                          </Sequence>
+                        </ActivityAction>
+                      </ui:ExcelApplicationScope.Body>
+                    </ui:ExcelApplicationScope>
+                  </If.Then>
+                </If>
+              </Sequence>
+            </ActivityAction>
+          </ui:ForEachRow.Body>
+        </ui:ForEachRow>
+        <If Condition="[ListFileColumnError.Count&gt;0]" sap:VirtualizedContainerService.HintSize="781,580" sap2010:WorkflowViewState.IdRef="If_13">
+          <If.Then>
+            <Sequence DisplayName="Terdapat File Location Error" sap:VirtualizedContainerService.HintSize="376,432" sap2010:WorkflowViewState.IdRef="Sequence_32">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:String" Name="strNotepadFileLoc" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Assign sap:VirtualizedContainerService.HintSize="334,64" sap2010:WorkflowViewState.IdRef="Assign_11">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[strNotepadFileLoc]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String" xml:space="preserve">["Berikut list link file yang tidak dapat ditemukan judul kolom yang nanti akan digunakan : "+Environment.NewLine+
+String.Join(Environment.NewLine, ListFileColumnError)]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke NotifNotepad workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\NotifNotepad.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <InArgument x:TypeArguments="x:String" x:Key="notifMessage">[strNotepadFileLoc]</InArgument>
+                </ui:InvokeWorkflowFile.Arguments>
+              </ui:InvokeWorkflowFile>
+              <xl:Write_Log DisplayName="Write Log" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Write_Log_9" LogType="Info" Message="[&quot;File &quot;+String.Join(&quot;, &quot;,ListFileColumnError)+&quot; tidak ditemukan di folder Data HCM.&quot;]" ProjectName="[in_ProjectName]" />
+              <Throw DisplayName="Throw File Location Error" Exception="[New BusinessRuleException(&quot;Terdapat file di kolom Location yang tidak ditemukan judul kolom yang dicari&quot;)]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Throw_6" />
+            </Sequence>
+          </If.Then>
+        </If>
+      </Sequence>
+      <TryCatch DisplayName="Try Catch Master Email" sap:VirtualizedContainerService.HintSize="521,314" sap2010:WorkflowViewState.IdRef="TryCatch_1">
         <TryCatch.Try>
           <ui:ReadRange AddHeaders="True" DataTable="[out_DT_MasterEmail]" DisplayName="Read Range Master Email wb" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ReadRange_3" SheetName="[strSheetMasterEmail]" WorkbookPath="[strPathFileMasterEmail]">
             <ui:ReadRange.Range>
@@ -467,7 +723,7 @@
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
               </ActivityAction.Argument>
-              <Sequence sap:VirtualizedContainerService.HintSize="476,414" sap2010:WorkflowViewState.IdRef="Sequence_18">
+              <Sequence sap:VirtualizedContainerService.HintSize="476,411" sap2010:WorkflowViewState.IdRef="Sequence_18">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="ui:WorkbookApplication" Name="workbook" />
                 </Sequence.Variables>
@@ -506,8 +762,8 @@
         </TryCatch.Catches>
       </TryCatch>
     </Sequence>
-    <uia:UpdateMessage BackColor="Yellow" DisplayName="Update Message" ForeColor="Black" Handle="[io_DisplayMessage]" sap:VirtualizedContainerService.HintSize="1026,22" sap2010:WorkflowViewState.IdRef="UpdateMessage_2" Message="Cek kelengkapan Master Data 20%" />
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1026,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Finished setting up application&quot;]" />
-    <xl:Write_Log DisplayName="Write Log" sap:VirtualizedContainerService.HintSize="1026,22" sap2010:WorkflowViewState.IdRef="Write_Log_3" LogType="Info" Message="Finished setting up application" ProjectName="[in_ProjectName]" />
+    <uia:UpdateMessage BackColor="Yellow" DisplayName="Update Message" ForeColor="Black" Handle="[io_DisplayMessage]" sap:VirtualizedContainerService.HintSize="563,22" sap2010:WorkflowViewState.IdRef="UpdateMessage_2" Message="Cek kelengkapan Master Data 20%" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="563,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Finished setting up application&quot;]" />
+    <xl:Write_Log DisplayName="Write Log" sap:VirtualizedContainerService.HintSize="563,22" sap2010:WorkflowViewState.IdRef="Write_Log_3" LogType="Info" Message="Finished setting up application" ProjectName="[in_ProjectName]" />
   </Sequence>
 </Activity>

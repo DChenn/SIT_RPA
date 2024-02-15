@@ -4,6 +4,7 @@
   "main": "Main.xaml",
   "dependencies": {
     "BalaReva.Excel.Activities": "[2021.0.0]",
+    "BalaReva.Word.Activities": "[8.0.0]",
     "UiPath.Excel.Activities": "[2.10.4]",
     "UiPath.Mail.Activities": "[1.12.3]",
     "UiPath.PDF.Activities": "[3.6.0]",
@@ -17,7 +18,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "20.10.2.0",
-  "projectVersion": "2.0.2.2",
+  "projectVersion": "2.0.2.2011",
   "runtimeOptions": {
     "autoDispose": false,
     "isPausable": true,
